@@ -22,9 +22,9 @@ public class CapsuleNotebook {
 
 //	parameter: Class, return: Class
 //	parameter 자리에 온 것은 ***주소값 >> 주소값을 받으려면 new 연산자가 필요
-	public CapsuleMouse handleMouse(CapsuleMouse cm) {
-		cm.x = 100;
-		cm.y = 200;
-		return cm;
+	public CapsuleMouse handleMouse(CapsuleMouse mouseAddr) {
+		mouseAddr.x = 100;
+		mouseAddr.y = 200;
+		return mouseAddr;
 	}
 }
