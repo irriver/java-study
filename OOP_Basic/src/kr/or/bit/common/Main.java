@@ -2,7 +2,9 @@ package kr.or.bit.common;
 
 import kr.or.bit.BodyInfo;
 import kr.or.bit.Emp;
+import kr.or.bit.FunctionTest;
 import kr.or.bit.Person;
+import kr.or.bit.Quiz;
 import kr.or.bit.Tv;
 
 public class Main {
@@ -68,5 +70,37 @@ public class Main {
 		
 //		서로 다른 객체를 연결!!!	>>	*참조변수 없이도 연결 가능
 		emp.bodyInfo = bodyRef;
+		
+		System.out.println("----------- 메소드 생성 테스트 -----------");
+		
+		FunctionTest ft = new FunctionTest();
+		ft.callMethod();
+		
+		ft.callMethod2(99);
+		
+		int resultFromMethod3 = ft.callMethod3();
+		System.out.println(resultFromMethod3);
+		
+		int resultFromMethod4 = ft.callMethod4(99);
+		System.out.println(resultFromMethod4);
+		
+		int resultFromSum = ft.sum(10, 20, 30);
+		System.out.println(resultFromSum);
+		
+//		ft.subSum();
+		ft.callSubSum();
+		
+		int resultOfOpSum = ft.opSum(20);
+
+		System.out.println("--------- Quiz: 큰 값 반환 메소드 ---------");
+		
+		Quiz q = new Quiz();
+		int maxValue = q.refindedMax(300, 100);
+		System.out.println("둘 중에 큰 수는: " + maxValue);
+		
+		Tv t2 = q.tvCall();
+		System.out.println(t2);	//인스턴스의 '주소값'이 t2에 담겨
+		
+		q.tvCall3(t2);
 	}
 }
