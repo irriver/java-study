@@ -29,5 +29,14 @@ public class ModifierTest {
 		c.downSpeed();
 		c.downSpeed();
 		System.out.println("1¹ø down " + c.getSpeed());
+		
+		boolean result = c.isStop();
+		System.out.println(result);
+		
+		if (!c.isStop()) {
+			c.setStop(true);
+		}
+		boolean result2 = c.isStop();
+		System.out.println(result2);
 	}
 }

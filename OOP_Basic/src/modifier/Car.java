@@ -9,6 +9,7 @@ package modifier;
 public class Car {
 	private int window;
 	private int speed;
+	private boolean stop;
 
 	public int getWindow() {
 		return window;
@@ -42,5 +43,13 @@ public class Car {
 		} else {
 			this.speed -= 10;
 		}
+	}
+	
+	public boolean isStop() {	//false
+		return stop;
+	}
+	
+	public void setStop(boolean stop) {
+		this.stop = stop;
 	}
 }
