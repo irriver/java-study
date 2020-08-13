@@ -8,7 +8,8 @@ public class Book {
 		this.bookName = bookName;
 		this.bookPrice = bookPrice;
 	}
-
+	
+	//setter 메소드를 만들지 않은 것은 요구사항에 "출판된 이후에 도서명과 가격을 수정하지 말 것" 있기 때문에
 	public String getBookName() {
 		return bookName;
 	}
