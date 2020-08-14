@@ -1,4 +1,4 @@
-package quiz_class;
+package quiz.composite;
 
 public class Monitor {
 	private String Lcd;

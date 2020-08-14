@@ -1,9 +1,8 @@
-package quiz_class;
+package quiz.composite;
 
-/*
- * 	static 변수도 private 이라면 setter, getter로 사용해야 하나?
- */
 public class Computer {
+	
+	//메인 바디와 공유할 필드
 	private static int price;
 	private static String brand;
 	private static String serialNo;
@@ -12,8 +11,8 @@ public class Computer {
 	private boolean saveMode;
 	
 	private MainBody body;
-	public KeyBoard key;
-	public Monitor monitor;
+	private KeyBoard key;
+	private Monitor monitor;
 	
 	public Computer(MainBody body, KeyBoard key, Monitor monitor) {
 		this.body = body;
@@ -21,14 +20,5 @@ public class Computer {
 		this.monitor = monitor;
 	}
 	
-	
-//	class Emp의 멤버인 class BodyInfo 역시 인스턴스화가 필요
-//	BodyInfo bodyRef = new BodyInfo();
-//	bodyRef.height = 190;
-//	bodyRef.weight = 40;
-//	
-//	
-////	서로 다른 객체를 연결!!!	>>	*참조변수 없이도 연결 가능
-//	emp.bodyInfo = bodyRef;
 	
 }

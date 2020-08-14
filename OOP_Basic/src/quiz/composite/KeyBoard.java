@@ -1,4 +1,4 @@
-package quiz_class;
+package quiz.composite;
 
 import java.util.Scanner;
 
