@@ -1,4 +1,4 @@
-package modifier;
+package lecture.modifier;
 
 /*
  	getter와 setter는 필요에 따라 있을 수도 없을수도

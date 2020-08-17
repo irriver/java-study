@@ -1,4 +1,4 @@
-package this_method;
+package lecture.this_method;
 
 /*
  * 	객체 자신을 가리키는 this 앞으로 생성될 주소를 담을 곳이라고 가정

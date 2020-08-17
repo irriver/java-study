@@ -1,4 +1,4 @@
-package this_method;
+package lecture.this_method;
 
 class CoolCar {
 	String color;

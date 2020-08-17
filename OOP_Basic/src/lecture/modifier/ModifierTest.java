@@ -1,4 +1,4 @@
-package modifier;
+package lecture.modifier;
 
 /*
  	접근자(한정자): modifier

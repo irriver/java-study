@@ -1,4 +1,4 @@
-package static_members;
+package lecture.static_members;
 
 /*
 	1) Set fields to default initial values (0, false, null)

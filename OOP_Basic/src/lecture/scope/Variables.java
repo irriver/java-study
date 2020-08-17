@@ -1,4 +1,4 @@
-package scope;
+package lecture.scope;
 
 /*
  	Instance Variable			>>	객체 생성 시에 사용가능

@@ -1,4 +1,4 @@
-package scope;
+package lecture.scope;
 
 public class Card {
 	private int number;

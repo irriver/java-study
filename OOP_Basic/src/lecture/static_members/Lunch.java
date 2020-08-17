@@ -1,4 +1,4 @@
-package static_members;
+package lecture.static_members;
 
 import java.util.Scanner;
 

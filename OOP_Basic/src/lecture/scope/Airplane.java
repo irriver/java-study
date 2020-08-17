@@ -1,4 +1,4 @@
-package scope;
+package lecture.scope;
 
 public class Airplane {
 	public String name;

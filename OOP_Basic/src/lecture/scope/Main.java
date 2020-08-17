@@ -1,4 +1,4 @@
-package scope;
+package lecture.scope;
 
 public class Main {
 	public static void main(String[] args) {

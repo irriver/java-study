@@ -1,4 +1,4 @@
-package static_members;
+package lecture.static_members;
 
 /*
  	자주 사용하는 메소드는 static으로 만들어	>>	class Math의 random() 메소드는 자주 사용하니까

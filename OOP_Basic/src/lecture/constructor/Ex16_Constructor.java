@@ -1,4 +1,4 @@
-package constructors;
+package lecture.constructor;
 /*
 생성자 함수(constructor)
 1. 함수(특수한 목적)

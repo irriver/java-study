@@ -1,4 +1,4 @@
-package this_method;
+package lecture.this_method;
 
 public class SoCar {
 	String color;
