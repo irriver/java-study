@@ -2,71 +2,18 @@ package quiz.pizza;
 
 import java.util.Scanner;
 
-public class PizzaPart {
+public class Pizza {
 	private String dough;
 	private String topping1;
 	private String topping2;
 	private String side;
 	private int choiceNum;
 
-	private String[] doughs = new String[] { "½Ò", "¹Ğ", "¾À" };
-	private String[] toppings = new String[] { "º£ÀÌÄÁ", "Ä¡Å²", "ºÒ°í±â", "½ºÅ×ÀÌÅ©" };
-	private String[] sides = new String[] { "Á¦·ÎÄİ¶ó", "¹öÆÈ·ÎÀ®", "½ºÆÄ°ÔÆ¼" };
+	private String[] doughs = new String[] { "ìŒ€", "ë°€", "ì”¬" };
+	private String[] toppings = new String[] { "ë² ì´ì»¨", "ì¹˜í‚¨", "ë¶ˆê³ ê¸°", "ìŠ¤í…Œì´í¬" };
+	private String[] sides = new String[] { "ì œë¡œì½œë¼", "ë²„íŒ”ë¡œìœ™", "ìŠ¤íŒŒê²Œí‹°" };
 
-	public void setDough(Scanner userInput) {
-		do {
-			System.out.println("---- µµ¿ì ¼±ÅÃ ----");
-			System.out.println("1)½Ò\t2)¹Ğ\t3)¾À");
-			choiceNum = userInput.nextInt();
-			
-			if (1 <= choiceNum && choiceNum <= 3) {
-				dough = doughs[choiceNum - 1];
-				return;
-			} else continue;
-		} while (true);
-	}
-
-	public void setTopping1(Scanner userInput) {
-		do {
-			System.out.println("---- ÅäÇÎ1 ¼±ÅÃ ----");
-			System.out.println("1)º£ÀÌÄÁ\t2)Ä¡Å² \t3)ºÒ°í±â\t4)½ºÅ×ÀÌÅ©");
-			choiceNum = userInput.nextInt();
-
-			if (1 <= choiceNum && choiceNum <= 4) {
-				topping1 = toppings[choiceNum - 1];
-				return;
-			} else continue;
-		} while (true);
-	}
-	
-	public void setTopping2(Scanner userInput) {
-		String[] ret = removeItem(choiceNum - 1);
-		do {
-			System.out.println("---- ÅäÇÎ2 ¼±ÅÃ ----");
-			showTopping2(ret);
-			choiceNum = userInput.nextInt();
-
-			if (1 <= choiceNum && choiceNum <= 4) {
-				topping2 = toppings[choiceNum];
-				return;
-			} else continue;
-		} while (true);
-	}
-
-	public void setSide(Scanner userInput) {
-		do {
-			System.out.println("--- »çÀÌµå ¸Ş´º ---");
-			System.out.println("1)Á¦·ÎÄİ¶ó\t2)¹öÆÈ·ÎÀ®\t3)½ºÆÄ°ÔÆ¼");
-			choiceNum = userInput.nextInt();
-
-			if (1 <= choiceNum && choiceNum <= 3) {
-				side = sides[choiceNum - 1];
-				return;
-			} else continue;
-		} while (true);
-	}
-	
-	public String[] removeItem(int idx) {
+	public String[] modifyItems(int idx) {
 		String[] src = toppings;
 		String[] dest = new String[src.length - 1];
 		for (int i = 0; i < idx; i++) {
@@ -78,7 +25,7 @@ public class PizzaPart {
 		return dest;
 	}
 	
-	public void showTopping2(String[] items) {
+	public void showItems(String[] items) {
 		int i = 0;
 		for (String item : items) {
 			System.out.print(++i+ ")" + item + "\t");
@@ -86,9 +33,61 @@ public class PizzaPart {
 		System.out.println();
 	}
 	
-	@Override
-	public String toString() {
-		return "ÁÖ¹®ÇÏ½Å  " + dough + " µµ¿ì, " + topping1 + ", " + topping2 + " Ãß°¡ÇÑ  ÇÇÀÚ¿¡ " + side + " ³ª¿Ô½À´Ï´Ù!";
+	public void setDough(Scanner userInput) {
+		do {
+			System.out.println("---- ë„ìš° ì„ íƒ ----");
+			showItems(doughs);
+			choiceNum = userInput.nextInt();
+			
+			if (1 <= choiceNum && choiceNum <= doughs.length) {
+				dough = doughs[choiceNum - 1];
+				return;
+			} else continue;
+		} while (true);
 	}
 
+	public void setTopping1(Scanner userInput) {
+		do {
+			System.out.println("---- í† í•‘1 ì„ íƒ ----");
+			showItems(toppings);
+			choiceNum = userInput.nextInt();
+
+			if (1 <= choiceNum && choiceNum <= toppings.length) {
+				topping1 = toppings[choiceNum - 1];
+				return;
+			} else continue;
+		} while (true);
+	}
+	
+	public void setTopping2(Scanner userInput) {
+		String[] toppings2 = modifyItems(choiceNum - 1);
+		do {
+			System.out.println("---- í† í•‘2 ì„ íƒ ----");
+			showItems(toppings2);
+			choiceNum = userInput.nextInt();
+
+			if (1 <= choiceNum && choiceNum <= toppings2.length) {
+				topping2 = toppings2[choiceNum - 1];
+				return;
+			} else continue;
+		} while (true);
+	}
+
+	public void setSide(Scanner userInput) {
+		do {
+			System.out.println("--- ì‚¬ì´ë“œ ë©”ë‰´ ---");
+			showItems(sides);
+			choiceNum = userInput.nextInt();
+
+			if (1 <= choiceNum && choiceNum <= sides.length) {
+				side = sides[choiceNum - 1];
+				return;
+			} else continue;
+		} while (true);
+	}
+	
+	@Override
+	public String toString() {
+		return "ì£¼ë¬¸í•˜ì‹   " + dough + " ë„ìš°, " + topping1 + ", " + topping2 + " ì¶”ê°€í•œ  í”¼ìì— " + side + " ë‚˜ì™”ìŠµë‹ˆë‹¤!";
+	}
 }
