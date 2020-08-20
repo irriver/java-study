@@ -42,7 +42,7 @@ public class Pizza {
 			if (1 <= choiceNum && choiceNum <= doughs.length) {
 				dough = doughs[choiceNum - 1];
 				return;
-			} else continue;
+			}
 		} while (true);
 	}
 
@@ -55,7 +55,7 @@ public class Pizza {
 			if (1 <= choiceNum && choiceNum <= toppings.length) {
 				topping1 = toppings[choiceNum - 1];
 				return;
-			} else continue;
+			}
 		} while (true);
 	}
 	
@@ -69,7 +69,7 @@ public class Pizza {
 			if (1 <= choiceNum && choiceNum <= toppings2.length) {
 				topping2 = toppings2[choiceNum - 1];
 				return;
-			} else continue;
+			}
 		} while (true);
 	}
 
@@ -82,7 +82,7 @@ public class Pizza {
 			if (1 <= choiceNum && choiceNum <= sides.length) {
 				side = sides[choiceNum - 1];
 				return;
-			} else continue;
+			}
 		} while (true);
 	}
 	
