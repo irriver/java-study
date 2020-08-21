@@ -3,77 +3,94 @@ package quiz.pizza;
 import java.util.Scanner;
 
 public class Pizza {
-	// ------- 피자 멤버 필드 ------
-	static String dough;
-	static String topping;
-	static String side;
+	private String dough;
+	private String topping1;
+	private String topping2;
+	private String side;
+	private int choiceNum;
 
-//	------ 피자 생성자 함수 ------
-	public Pizza() {
-		this(dough);
+	private String[] doughs = new String[] { "쌀", "밀", "씬" };
+	private String[] toppings = new String[] { "베이컨", "치킨", "불고기", "스테이크" };
+	private String[] sides = new String[] { "제로콜라", "버팔로윙", "스파게티" };
+
+//토핑1에서 선택한 아이템을 제외한 목록을 배열로 만드는 메소드
+	public String[] modifyItems(int idx) {
+		String[] src = toppings;
+		String[] dest = new String[src.length - 1];
+		for (int i = 0; i < idx; i++) {
+			dest[i] = src[i];
+		}
+		for (int i = idx; i < dest.length; i++) {
+			dest[i] = src[i + 1];
+		}
+		return dest;
 	}
-
-	public Pizza(String dough) {
-		this(dough, topping);
+	//아이템 목록을 출력하는 메소드
+	public void showItems(String[] items) {
+		int i = 0;
+		for (String item : items) {
+			System.out.print(++i + ")" + item + "\t");
+		}
+		System.out.println();
 	}
-
-	public Pizza(String dough, String topping) {
-		this(dough, topping, side);
-	}
-
-	public Pizza(String dough, String topping, String side) {
-		this.dough = dough;
-		this.topping = topping;
-		this.side = side;
-	}
-
-	// 어차피 도우, 토핑, 사이드 셋 다 3~4개 중 하나만 선택해야 하니까
-	// 1 ~4 중 하나의 정수를 사용자에게 입력받는 메소드를 만들자
-	int selectionLoop(int userSelect) {
-		int result = 0;
-		while (true) {
-			if (1 <= userSelect && userSelect <= 4) {
-				result = userSelect;
-				break;
+	
+// 사용자 입력값을 받아 도우 선택하는 메소드
+	public void setDough(Scanner userInput) {
+		do {
+			System.out.println("---- 도우 선택 ----");
+			showItems(doughs);
+			choiceNum = userInput.nextInt();
+			
+			if (1 <= choiceNum && choiceNum <= doughs.length) {
+				dough = doughs[choiceNum - 1];
+				return;
 			}
-			System.out.println("1 2 3 4 중 하나만 선택해주세요");
-			continue;
-		}
-		return result;
+		} while (true);
 	}
 
-	void selectPizzaPart(int processNum) {
-		switch (selectionLoop(processNum)) {
-		case 1:
-			selectDough();
-			break;
-		case 2:
-			selectTopping();
-			break;
-		case 3:
-			selectSide();
-			break;
-		default:
-			System.out.println("???");
-		}
+// 사용자 입력값을 받아 토핑1을 선택하는 메소드
+	public void setTopping1(Scanner userInput) {
+		do {
+			System.out.println("---- 토핑1 선택 ----");
+			showItems(toppings);
+			choiceNum = userInput.nextInt();
+
+			if (1 <= choiceNum && choiceNum <= toppings.length) {
+				topping1 = toppings[choiceNum - 1];
+				return;
+			}
+		} while (true);
 	}
+	//이전에 선택한 토핑1을 '제외한 나머지' 중 사용자 입력값을 받아 토핑2를 선택하는 메소드
+	public void setTopping2(Scanner userInput) {
+		String[] toppings2 = modifyItems(choiceNum - 1);
+		do {
+			System.out.println("---- 토핑2 선택 ----");
+			showItems(toppings2);
+			choiceNum = userInput.nextInt();
 
-//	------ 피자 속성 선택 함수들 ------
-
-	String selectDough() {
-		return dough;
+			if (1 <= choiceNum && choiceNum <= toppings2.length) {
+				topping2 = toppings2[choiceNum - 1];
+				return;
+			}
+		} while (true);
 	}
+//사용자 입력값을 받아 사이드 메뉴를 선택하는 메소드
+	public void setSide(Scanner userInput) {
+		do {
+			System.out.println("--- 사이드 메뉴 ---");
+			showItems(sides);
+			choiceNum = userInput.nextInt();
 
-	String selectTopping() {
-		return topping;
+			if (1 <= choiceNum && choiceNum <= sides.length) {
+				side = sides[choiceNum - 1];
+				return;
+			}
+		} while (true);
 	}
-
-	String selectSide() {
-		return side;
-	}
-
-//	------ 피자 속성 조함 함수 ------
-	void combinePizza(String dough, String topping, String side) {
-		System.out.printf("주문하신 %s %s %s 피자 나왔습니다.", dough, topping, side);
+	// toString()을 오버라이드 해서 선택한 아이템 목록을 리턴하는 메소드
+	@Override
+	public String toString() {
+		return "주문하신  " + dough + " 도우, " + topping1 + ", " + topping2 + " 추가한  피자에 " + side + " 나왔습니다!";
 	}
 }
