@@ -3,30 +3,34 @@ package quiz.two_dimension;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
-
-
-//seatNo는 2차원 극장 좌석배치도, inputSeat은 고객이 선택한 1차원  문자열 배열
-//reservationNo는 '날짜' + 'inputSeat'을 조합한 '예매번호'
+/*
+	'seatNo' is an 1 dimensional String array and each components has ASCII codes in integer value
+	'userInput' takes two digits in String which are seat numbers from user
+	'seatLen' is a integer, can
+	change length of 'seatNo'
+	
+	 'A	B	C	D	E
+	 F	G	H	I	J
+	 K	L	M	N	O
+	
+*/
 
 public class Cinema {
-//	------------------ Field ----------------------
-	public String[][] seatNo; 
-	public static Scanner userInput;
-	public String[] inputSeat;
+	private int[] seatNo; 
+	private Scanner userInput;
+//	private String[] inputSeat;
+	private int seatLen;
 	
 	public Cinema() {
-		this.inputSeat = new String[2];
-		this.seatNo = new String[5][5];
+		this.seatNo = new String[2];
+		this.seatNo = new int[seatLen];
 		this.userInput = new Scanner(System.in);
 	}
 
-//	------------------ Function ----------------------
 	//*빈 자리 만들기
-	public String[][] makeSeat() {
-		for (int i = 0; i < seatNo.length; i++) {
-			for (int j = 0; j < seatNo[i].length; j++) {
-				seatNo[i][j] = "Empty";
-			}
+	public int[] makeSeat() {
+			for (int i = 0; i < seatNo.length; i++) {
+				seatNo[i] = 'A' + i;
 		}
 		return seatNo;
 	}
@@ -36,9 +40,7 @@ public class Cinema {
 		System.out.println("좌석 번호 두 자릿수를 입력하세요>> ");
 		String seatStr = userInput.nextLine();
 		String row = seatStr.substring(0, 1);
-		System.out.println("row: " + row);
 		String col = seatStr.substring(1, 2);
-		System.out.println("col: " + col);
 		inputSeat[0] = row;
 		inputSeat[1] = col;
 		return inputSeat;

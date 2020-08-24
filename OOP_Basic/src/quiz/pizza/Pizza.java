@@ -9,9 +9,9 @@ public class Pizza {
 	private String side;
 	private int choiceNum;
 
-	private String[] doughs = new String[] { "쌀", "밀", "씬" };
-	private String[] toppings = new String[] { "베이컨", "치킨", "불고기", "스테이크" };
-	private String[] sides = new String[] { "제로콜라", "버팔로윙", "스파게티" };
+	private String[] doughs = new String[] {"밀", "씬" };
+	private String[] toppings = new String[] { "치즈", "페퍼로니", "베이컨", "치킨", "불고기", "스테이크" };
+	private String[] sides = new String[] { "스프라이트", "닥터페퍼", "제로콜라", "버팔로윙", "스파게티" };
 
 //토핑1에서 선택한 아이템을 제외한 목록을 배열로 만드는 메소드
 	public String[] modifyItems(int idx) {
@@ -88,6 +88,15 @@ public class Pizza {
 			}
 		} while (true);
 	}
+	
+	void isCorrectInput() {
+		if (1 <= choiceNum && choiceNum <= 2147483647) {
+			System.out.println("입력값의 오류로 프로그램을 종료합니다.");
+			System.out.println("처음부터 다시 시작해주세요...");
+			System.exit(0);
+		}
+	}
+	
 	// toString()을 오버라이드 해서 선택한 아이템 목록을 리턴하는 메소드
 	@Override
 	public String toString() {

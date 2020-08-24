@@ -2,26 +2,26 @@ package quiz.pizza;
 
 import java.util.Scanner;
 
-public class Pizza {
+public class RamPizza {
 	// ------- 피자 멤버 필드 ------
 	static String dough;
 	static String topping;
 	static String side;
 
 //	------ 피자 생성자 함수 ------
-	public Pizza() {
+	public RamPizza() {
 		this(dough);
 	}
 
-	public Pizza(String dough) {
+	public RamPizza(String dough) {
 		this(dough, topping);
 	}
 
-	public Pizza(String dough, String topping) {
+	public RamPizza(String dough, String topping) {
 		this(dough, topping, side);
 	}
 
-	public Pizza(String dough, String topping, String side) {
+	public RamPizza(String dough, String topping, String side) {
 		this.dough = dough;
 		this.topping = topping;
 		this.side = side;
