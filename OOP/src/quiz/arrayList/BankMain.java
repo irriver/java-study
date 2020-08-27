@@ -1,5 +1,7 @@
 package quiz.arrayList;
 
+import java.util.ArrayList;
+
 public class BankMain {
 	public static void main(String[] args) {
 		Bank bank = new Bank();
@@ -21,8 +23,14 @@ public class BankMain {
 		
 		//총 개설 계좌수 확인
 		System.out.println("총 개설 계좌 수 " + bank.getTotalAccount());
+		System.out.println();
 		
 		//이름으로 계좌 확인 (단 이름 중복 체크 안함)
 		
+		//'거래 내역'을 출력해보자
+		ArrayList<Transaction> ret = bank.getAccount("100").getTransactions();
+		for (Transaction result : ret) {
+			System.out.println(result.toString());
+		}
 	}
 }

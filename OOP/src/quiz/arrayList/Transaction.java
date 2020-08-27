@@ -21,6 +21,6 @@ public class Transaction {
 	
 	@Override
 	public String toString() {
-		return "--- 거래내역 ---\n [거래금액: " + amount + "잔액: " + balance + "\n거래일자: " + transactionDate + "\n거래시간: " + transactionTime;
+		return "\t--- 거래내역 ---\n [거래금액: " + amount + " 잔액: " + balance + "]\n\t거래일자: " + transactionDate + "\n\t거래시간: " + transactionTime;
 	}
 }

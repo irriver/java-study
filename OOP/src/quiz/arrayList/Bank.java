@@ -24,9 +24,11 @@ public class Bank {
 		for (Account theAccount : accounts) {
 			if (theAccount.getAccountNo() == accountNo) {
 				System.out.println(theAccount.toString());
+				System.out.println();
 				return ;
 			} else {
 				System.out.println("해당 계좌가 없습니다.");
+				System.out.println();
 			}
 //			System.out.println(theAccount);
 		}

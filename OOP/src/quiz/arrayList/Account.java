@@ -39,7 +39,8 @@ public class Account {
 			setTransactions("출금", -amount, this.balance);
 		} else {
 			System.out.println("--- 승인거절: 잔고 부족 ! ---");
-			System.out.println(" >> 잔액이 " + (balance - amount) + "원 부족합니다.");
+			System.out.println(" >> 잔액이 " + -(balance - amount) + "원 부족합니다.");
+			System.out.println();
 		}
 	}
 	
