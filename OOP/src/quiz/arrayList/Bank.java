@@ -1,13 +1,13 @@
 package quiz.arrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bank {
-	private ArrayList<Account> accounts;
+	private List<Account> accounts;
 	private int totalAccount;
 
 	public Bank() {
-		// new ArrayList(); 보다 타입 명시해주는 게 낫겠지..?
 		this.accounts = new ArrayList<Account>();
 		this.totalAccount = 0;
 	}
